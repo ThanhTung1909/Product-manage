@@ -25,7 +25,7 @@ const productSchema = new mongoose.Schema(
     createdBy: {
       account_id: String,
       createdAt: {
-        type: String,
+        type: Date,
         default: Date.now
       }
     },
@@ -45,9 +45,9 @@ const productSchema = new mongoose.Schema(
     },
     
   },
-  {
-    timestamps: true,
-  }
+  // {
+  //   timestamps: true,
+  // }
 );
 
 const Product = mongoose.model("Product", productSchema, "products");
