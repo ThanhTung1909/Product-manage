@@ -6,6 +6,10 @@ mongoose.plugin(slug);
 const productSchema = new mongoose.Schema(
   {
     title: String,
+    product_category_id: {
+      type: String,
+      default: ""
+    },
     description: String,
     price: Number,
     discountPercentage: Number,
@@ -18,11 +22,28 @@ const productSchema = new mongoose.Schema(
       slug: "title",
       unique: true
     },
+    createdBy: {
+      account_id: String,
+      createdAt: {
+        type: String,
+        default: Date.now
+      }
+    },
+    updatedBy: [
+      {
+        account_id: String,
+        updatedAt: Date
+      }
+    ],
     deleted: {
       type: Boolean,
       default: false,
     },
-    deletedAt: Date,
+    deletedBy: {
+      account_id: String,
+      deletedAt: Date
+    },
+    
   },
   {
     timestamps: true,
