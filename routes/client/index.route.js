@@ -11,7 +11,7 @@ const userRoutes = require("./user.route");
 
 module.exports = (app) => {
     app.use(categoryMiddleware.category)
-    app.use(cartMiddleware.cartId)
+    app.use(cartMiddleware.cartId);
     app.use(userMiddleware.infoUser)
 
     app.use('/', homeRoutes);
